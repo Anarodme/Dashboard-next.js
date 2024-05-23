@@ -22,13 +22,12 @@ export default function EditInvoiceForm({
   const initialState = { message: null, errors: {} };
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const [state, dispatch] = useFormState(updateInvoiceWithId, initialState);
- 
-  return  (
-  <form action={dispatch}>
+
+  return (
+    <form action={dispatch}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-            Choose customer
+          <label htmlFor="customer" className="mb-2 block text-sm font-medium">Choose customer
           </label>
           <div className="relative">
             <select
@@ -37,8 +36,7 @@ export default function EditInvoiceForm({
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               defaultValue={invoice.customer_id}
             >
-              <option value="" disabled>
-                Select a customer
+              <option value="" disabled>Select a customer
               </option>
               {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>
@@ -51,8 +49,7 @@ export default function EditInvoiceForm({
         </div>
 
         <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-            Choose an amount
+          <label htmlFor="amount" className="mb-2 block text-sm font-medium">Choose an amount
           </label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
@@ -88,8 +85,7 @@ export default function EditInvoiceForm({
                 <label
                   htmlFor="pending"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
-                >
-                  Pending <ClockIcon className="h-4 w-4" />
+                >Pending <ClockIcon className="h-4 w-4" />
                 </label>
               </div>
               <div className="flex items-center">
@@ -104,8 +100,7 @@ export default function EditInvoiceForm({
                 <label
                   htmlFor="paid"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
-                >
-                  Paid <CheckIcon className="h-4 w-4" />
+                >Paid <CheckIcon className="h-4 w-4" />
                 </label>
               </div>
             </div>
@@ -116,8 +111,7 @@ export default function EditInvoiceForm({
         <Link
           href="/dashboard/invoices"
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-        >
-          Cancel
+        >Cancel
         </Link>
         <Button type="submit">Edit Invoice</Button>
       </div>
